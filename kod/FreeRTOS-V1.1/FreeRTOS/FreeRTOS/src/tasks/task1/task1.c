@@ -29,8 +29,9 @@ void task1(void *pvParamters)
 		/* ----------------------------------- simulate a function/task that is working ----------------------------------- */
 		ioport_set_pin_level(pin13, HIGH); /* set pin to HIGH to indicate that the task has entered the running state */
 		volatile int j=0;
-		for (int i=0; i < 100000; i++)
+		for (int i=0; i < 200000; i++)
 		{
+			ioport_set_pin_level(pin12, LOW);
 			j++;
 		}
 		ioport_set_pin_level(pin13, LOW); /* set pin to LOW to indicate that the task is no longer in the running state */

@@ -24,7 +24,7 @@ int misc_init (void)
 	/* ------------------------------------------------------------------------- */
 	ioport_init();
 	ioport_set_pin_dir(pin13, IOPORT_DIR_OUTPUT); /* used in task1 */
-	ioport_set_pin_dir(pin12, IOPORT_DIR_OUTPUT); /* used in task1 */
+	ioport_set_pin_dir(pin12, IOPORT_DIR_OUTPUT); /* used in task2 */
 	ioport_set_pin_dir(pin11, IOPORT_DIR_OUTPUT); /* used in interrupt */
 	ioport_set_pin_level(pin13, LOW);
 	ioport_set_pin_level(pin12, LOW);
