@@ -29,7 +29,7 @@
  * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
  */
 #include <asf.h>
-#define P22 IOPORT_CREATE_PIN(PIOC, 22)
+#include "motorController.h"
 
 int main (void)
 {
@@ -40,15 +40,7 @@ int main (void)
 
 	ioport_set_pin_dir(PIO_PB27_IDX, IOPORT_DIR_OUTPUT);
 	while(1) {
-		//delay_s(1);
-		ioport_set_pin_level(PIO_PB27_IDX, HIGH);
-		delay_us(800);
-		ioport_set_pin_level(PIO_PB27_IDX, LOW);
-		delay_us(1500);
-		ioport_set_pin_level(PIO_PB27_IDX, HIGH);
-		delay_us(800);
-		ioport_set_pin_level(PIO_PB27_IDX, LOW);
-		delay_us(5500);
+		drive(50,0,1,-1);
 	}
 	
 	
