@@ -9,10 +9,20 @@ av den digital signalen som kommer in på A0 skapas.
 #include "ISR.h"
 #include "../initializations/pins_init.h"
 
-int pVal = -1;
+int pVal1 = -1;
+int pVal2 = -1;
 
-void my_ISR(void)
+void ISR1(void)
 {
-	ioport_set_pin_level(pin11,pVal);
-	pVal = ~pVal;
+
+	//ioport_toggle_pin_level(pin11)
+	//ioport_get_pin_level()
+	ioport_set_pin_level(pin11,pVal1);
+	pVal1 = ~pVal1;
+}
+
+void ISR2(void)
+{
+	ioport_set_pin_level(pin10,pVal2);
+	pVal2 = ~pVal2;
 }

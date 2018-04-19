@@ -25,10 +25,12 @@ int misc_init (void)
 	ioport_init();
 	ioport_set_pin_dir(pin13, IOPORT_DIR_OUTPUT); /* used in task1 */
 	ioport_set_pin_dir(pin12, IOPORT_DIR_OUTPUT); /* used in task2 */
-	ioport_set_pin_dir(pin11, IOPORT_DIR_OUTPUT); /* used in interrupt */
+	
+	ioport_set_pin_dir(pin11, IOPORT_DIR_OUTPUT); /* used for interrupt 1 */
+	ioport_set_pin_dir(pin10, IOPORT_DIR_OUTPUT); /* used for interrupt 2*/
+	
 	ioport_set_pin_level(pin13, LOW);
 	ioport_set_pin_level(pin12, LOW);
-	ioport_set_pin_level(pin11, LOW);
 	/* ------------------------------------------------------------------------- */
 	
 	return 0;
@@ -75,11 +77,24 @@ int console_init(void)
 /* author Gustav Dahlman */
 int interrupt_init(void) 
 {
-	pmc_enable_periph_clk(ID_PIOA); 
-	pio_set_input(PIOA, PIO_PA16, NULL);
-	pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_RE_OR_HL, my_ISR);
-	pio_enable_interrupt(PIOA, PIO_PA16);
-	NVIC_EnableIRQ(PIOA_IRQn);
+	pmc_enable_periph_clk(ID_PIOC);
+	
+	/* Interrupt 1 */ 
+	pio_set_input(PIOC, pin8, NULL);
+	//pio_handler_set(PIOC, ID_PIOC, pin8, PIO_IT_RE_OR_HL, ISR1);
+	pio_handler_set(PIOC, ID_PIOC, pin8, PIO_IT_EDGE, ISR1);
+	pio_enable_interrupt(PIOC, pin8);
+	/* ------------ */
+	
+	/* Interrupt 2 */ 
+	//pio_set_input(PIOC, pin7, PIO_PULLUP);
+	pio_set_input(PIOC, pin7, NULL);
+	pio_handler_set(PIOC, ID_PIOC, pin7, PIO_IT_EDGE, ISR2);
+	pio_enable_interrupt(PIOC, pin7);
+	/* ------------ */
+	
+	NVIC_EnableIRQ(PIOC_IRQn);
+	
 	return 0;
 }
 

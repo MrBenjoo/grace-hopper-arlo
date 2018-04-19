@@ -1,6 +1,7 @@
 #ifndef MYISR_H_
 #define MYISR_H_
 
-void my_ISR(void);
+void ISR1(void);
+void ISR2(void);
 
 #endif /* MYISR_H_ */
