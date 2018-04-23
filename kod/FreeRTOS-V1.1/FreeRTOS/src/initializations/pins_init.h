@@ -19,4 +19,9 @@
 #define pin3  PIO_PC28_IDX
 #define pin2  PIO_PB25_IDX
 
+#define A0 PIO_PA16
+#define A1 PIO_PA24
+#define A2 PIO_PA23
+#define A3 PIO_PA22 
+
 #endif /* PINSINIT_H_ */
