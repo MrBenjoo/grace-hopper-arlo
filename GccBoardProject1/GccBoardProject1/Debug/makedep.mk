@@ -2,8 +2,6 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-src\ASF\sam\drivers\pwm\pwm.c
-
 src\motorController.c
 
 src\ASF\common\services\clock\sam3x\sysclk.c
