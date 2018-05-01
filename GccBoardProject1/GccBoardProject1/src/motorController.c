@@ -5,6 +5,8 @@
  *  Author: filip
  */ 
  #include <asf.h>
+ #include <stdio.h>
+
  void drive(int rSpeed, int lSpeed, int rDirection, int lDirection) { //speed 0-100, direction -1,1
 	int rMotorSpeed = (1500 + 7 * rSpeed * rDirection);
 	int lMotorSpeed = (1500 + 7 * lSpeed * lDirection);
