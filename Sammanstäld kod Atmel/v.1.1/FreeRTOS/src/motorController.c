@@ -35,21 +35,21 @@
 }
 /*Returns the value of latest speed set for the left motor*/
 int getSetLSpeed(){
-	printf("Set Speed for Left Motor is: #%i\n",lSpeed);
+	printf("Set Speed for Left Motor is: %i\n%%",lSpeed);
 	return lSpeed;
 }
 /*Returns the value of latest speed set for the right motor*/
 int getSetRSpeed(){
-	printf("Set Speed for Right Motor is: #%i\n",rSpeed);
+	printf("Set Speed for Right Motor is: %i\n%%",rSpeed);
 	return rSpeed;
 }
 /*Returns the value of latest direction set for the left motor*/
 int getSetLDirection(){
-	printf("Set Direction for Left Motor is: #%i\n",lDirection);
+	printf("Set Direction for Left Motor is: %i\n",lDirection);
 	return lDirection;
 }
 /*Returns the value of latest direction set for the right motor*/
 int getSetRDirection(){
-	printf("Set Direction for Right Motor is: #%i\n",rSpeed);
+	printf("Set Direction for Right Motor is: %i\n",rDirection);
 	return rDirection;
 }
