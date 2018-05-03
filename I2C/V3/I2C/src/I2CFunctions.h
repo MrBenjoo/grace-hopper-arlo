@@ -9,7 +9,7 @@
 #define I2CFUNCTIONS_H_
 
 #define TWI_SLAVE_ADR_PAB 8
-#define TWI_SLAVE_ADR_POS 9
+#define TWI_SLAVE_ADR_POS 0x10
 
 /* Commands to send to the slave */
 #define data_01					10

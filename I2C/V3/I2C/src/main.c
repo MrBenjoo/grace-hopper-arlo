@@ -26,7 +26,7 @@ int main (void)
 		//test_fs_8();
 		//test_fs_9();
 			
-			read_package(TWI_SLAVE_ADR_PAB);
+			read_package(TWI_SLAVE_ADR_POS);
 	}
 	
 }
