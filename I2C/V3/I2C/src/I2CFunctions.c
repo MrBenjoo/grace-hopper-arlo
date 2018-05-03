@@ -13,7 +13,7 @@
 #define TWI_SPEED					100000					/* Default I2C transfer speed = 100.000 */						
 #define TWI_SLAVE_MEM_ADDR			0x00					
 #define TWI_PORT					TWI1					/* Use SDA 20 and SCL 21 on Arduino Due */ 
-#define TWI_DATA_SEND_LENGTH_PA		3						/* The length of the package that is sent to PAB */
+#define TWI_DATA_SEND_LENGTH_PA		1						/* The length of the package that is sent to PAB */
 #define TWI_DATA_SEND_LENGTH_POS	1						/* The length of the package that is sent to POS */
 #define TWI_DATA_REC_LENGTH_PA		1						/* The length of the package that is received from PAB */
 #define TWI_DATA_REC_LENGTH_POS		10						/* The length of the package that is received from POS */
@@ -92,83 +92,58 @@ uint8_t init_twi(void)
 
 /*
  *	Sends a packet (1 byte) to the slave (uno or mega)
- *  The function "twi_master_write" will NOT return until all data has been written or error occurred.
- *  It will return TWI_SUCCESS if all bytes were written, error code otherwise.
  */
 uint8_t send_package(uint8_t data, uint8_t slave)
 {
-	/* Påbyggnadsenhet (UNO) */
+		
+	/* Send to Påbyggnadsenhet (UNO) */
 	if(TWI_SLAVE_ADR_PAB == slave)
-	{
-		send_data_pab[0] = data;
+		return twi_send(send_data_pab, data, packet_pab, TWI_SLAVE_ADR_PAB);
 		
-		/* används för testning */
-// 		send_data_pab[0] = data_01;
-// 		send_data_pab[1] = data_02;
-// 		send_data_pab[2] = data_03;
-		/* -------------------- */
-		
-		packet_pab.chip = slave;
-		packet_pab.buffer = (void *)send_data_pab;
-		if(twi_master_write(TWI_PORT, &packet_pab) == TWI_SUCCESS)
-		{
-			printf("package sent\n");
-			return DATA_SENT;
-		} 
-		else 
-		{
-			printf("package not sent\n");
-			return DATA_NOT_SENT;
-		}
-		
-	}
-	/* Positioneringsenhet (MEGA */
+	/* Send to Positioneringsenhet (MEGA) */
 	else if(TWI_SLAVE_ADR_POS == slave)
-	{
+		return twi_send(send_data_pos, data, packet_pos, TWI_SLAVE_ADR_POS);
 		
-		// array, slave, packet
-		send_data_pos[0] = data;
-		packet_pos.chip = slave;
-		packet_pos.buffer = (void *)send_data_pos;
-		if(twi_master_write(TWI_PORT, &packet_pos) == TWI_SUCCESS) 
-		{
-			printf("package sent\n");
-			return DATA_SENT;
-		}
-		else 
-		{
-			printf("package not sent\n");
-			return DATA_NOT_SENT;
-		}	
-	} 
-	else 
+	else
 		return !TWI_SUCCESS;
+		
+		
+}
+
+/*
+ *  The function "twi_master_write" will NOT return until all data has been written or error occurred.
+ *  It will return TWI_SUCCESS if all bytes were written, error code otherwise.
+ */
+uint8_t twi_send(uint8_t data_arr[], uint8_t data, twi_packet_t packet, uint8_t slave) 
+{
+	data_arr[0] = data;
+	packet.chip = slave;
+	packet.buffer = (void *)data_arr;
+	if(twi_master_write(TWI_PORT, &packet) == TWI_SUCCESS)
+		return DATA_SENT;
+	else
+		return DATA_NOT_SENT;
 }
 
 
 uint8_t read_package(uint8_t slave)
 {
 	if (slave == TWI_SLAVE_ADR_PAB)
-	{
-		if(twi_master_read(TWI_PORT, &packet_rec_pab) == TWI_SUCCESS) 
-		{
-			printf("%s", "following shit was successfully read from the MEGA: \n");
-			for(int i = 0; i < TWI_DATA_REC_LENGTH_PA; i++)
-				printf("%i\n", rec_data_pab[i]);
-			return 1;
-		}
-	}
+		return twi_read(rec_data_pab, TWI_DATA_REC_LENGTH_PA, packet_rec_pab);
 	else if (slave == TWI_SLAVE_ADR_POS)
-	{
-		if(twi_master_read(TWI_PORT, &packet_rec_pos) == TWI_SUCCESS)
-		{
-			printf("%s", "following shit was successfully read from the UNO: \n");
-			for(int i = 0; i < TWI_DATA_REC_LENGTH_POS; i++)
-				printf("%i\n", rec_data_pos[i]);
-			return 1;
-		}
-	}
+		return twi_read(rec_data_pos, TWI_DATA_REC_LENGTH_POS, packet_rec_pos);
 	else
 		return !TWI_SUCCESS;
 }
 
+uint8_t twi_read(uint8_t rec_data[], uint8_t data_length, twi_packet_t packet_rec)
+{
+	if(twi_master_read(TWI_PORT, &packet_rec) == TWI_SUCCESS)
+	{
+		for(int i = 0; i < data_length; i++)
+			printf("%i\n", rec_data[i]);
+		return DATA_READ;
+	}
+	else
+		return DATA_NOT_READ;
+}

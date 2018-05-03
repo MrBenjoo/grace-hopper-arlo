@@ -15,6 +15,7 @@ int main (void)
 		/* Olika testfall från testprotokollet "I2C med FreeRTOS" */
 			// TODO
 		
+		
 		/* Olika testfall från testprotokollet "I2C - Flera slaves" */
 		//test_fs_1();
 		//test_fs_2();
@@ -26,7 +27,10 @@ int main (void)
 		//test_fs_8();
 		//test_fs_9();
 			
-			read_package(TWI_SLAVE_ADR_POS);
+			
+		/* Testa random saker */
+		read_package(TWI_SLAVE_ADR_POS);
+		//send_package(LED_OFF, TWI_SLAVE_ADR_PAB);
 	}
 	
 }
