@@ -6,9 +6,11 @@
  */ 
  #include <asf.h>
  #include <stdio.h>
+ #include <math.h>
  #include "motorController.h"
  #define PWM_35 IOPORT_CREATE_PIN(PIOC, 3) // pin 35
  #define PWM_42 IOPORT_CREATE_PIN(PIOA, 19) // pin 42
+ #define PI 3.14159265
 
  pwm_channel_t pwm_channel_instance;
  
@@ -102,4 +104,9 @@ void testDriveR(int speed, int direction) {
 
 	//configuration is complete, so enable the channel
 	pwm_channel_enable(PWM, PWM_CHANNEL_1);
+}
+
+int getAngle(int p1X, int p1Y, int p2X, int p2Y) {
+	// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference
+	return atan2(p1Y-p2Y, p1X-p2X) * (180/PI) + 180;
 }
