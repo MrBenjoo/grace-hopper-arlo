@@ -51,7 +51,8 @@ void task1(void *pvParamters)
 		pulses[1][testNbr] = getLeftPulses();
 		pulses[2][testNbr] = getRightPulses();
 		printf("Test#%i is ending...\n",testNbr);
-		printf("------\n");	
+		printf("------\n");
+		resetCounter();	
 		testNbr++;
 	}
 	printf("All tests have been run through...\n");
