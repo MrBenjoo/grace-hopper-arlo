@@ -106,7 +106,7 @@ void testDriveR(int speed, int direction) {
 	pwm_channel_enable(PWM, PWM_CHANNEL_1);
 }
 
-double getAngle(double p1Y, double p2Y, double p1X, double p2X) {
+int getAngle(int p1X, int p1Y, int p2X, int p2Y) {
 	// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference
-	return atan2(p1Y-p2Y, p1X-p2X) * (180/PI) + 180; 
+	return atan2(p1Y-p2Y, p1X-p2X) * (180/PI) + 180;
 }
