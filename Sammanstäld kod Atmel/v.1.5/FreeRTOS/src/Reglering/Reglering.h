@@ -8,6 +8,6 @@
 
 #ifndef REGLERING_H_
 #define REGLERING_H_
-void controlCenter(int distans);
+void controlCenter(int lWheel,int rWheel);
 
 #endif /* REGLERING_H_ */

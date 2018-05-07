@@ -24,7 +24,7 @@ int main (void)
 	//interrupt_init();	//	pin 7 and 8 as interrupt pins	
 	encoder_init(); //also initialises pin 5 (left encoder) & 7 (right encoder) as interrupt pins
 	rtos_init(); //Starts RTOS scheduler
-	//delay_us(3000000);
-	//controlCenter(50);
+	delay_us(3000000);
+	controlCenter(144,144);
 		
 }
