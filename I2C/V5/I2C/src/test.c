@@ -97,7 +97,7 @@ void test_fs_9()
 	uint8_t counter = 0;
 	while(counter<20)
 	{
-		send_package(data_01,TWI_SLAVE_ADR_POS);
+		//send_package(data_01,TWI_SLAVE_ADR_POS);
 		counter++;
 	}
 }
