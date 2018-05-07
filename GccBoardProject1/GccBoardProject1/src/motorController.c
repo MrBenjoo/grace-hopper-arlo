@@ -110,3 +110,16 @@ int getAngle(int p1X, int p1Y, int p2X, int p2Y) {
 	// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference
 	return atan2(p1Y-p2Y, p1X-p2X) * (180/PI) + 180;
 }
+void angleCorrection(int rX,int rY,int cX,int cY,int u1) { // r = robotic position, c = coordinate position, u1 = angle of robot.
+	// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference
+	int v1 = atan2(rY-cY, rX-cX) *(180/PI) + 180; // the angle we want to have.
+	int correctionAngle = v1-u1;
+	if(correctionAngle>=0){
+		
+	}
+	else{
+		
+		
+	}
+	//skickar så många pulser som behövs för att svänga correctionAngle många grader.
+}
