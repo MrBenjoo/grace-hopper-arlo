@@ -119,7 +119,6 @@ void angleCorrection(int rX,int rY,int cX,int cY,int u1) { // r = robotic positi
 	}
 	else{
 		
-		
 	}
 	//skickar så många pulser som behövs för att svänga correctionAngle många grader.
 }
