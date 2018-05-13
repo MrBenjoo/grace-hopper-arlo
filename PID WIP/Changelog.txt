@@ -1,0 +1,3 @@
+V 1.2 
+ - Färdigt men ej testat
+ - Skriver även ut min avg max lijära hastighet för varje motorstyrka 50-700 i steg av 50.
