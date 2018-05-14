@@ -15,3 +15,8 @@ V 1.3
   verkar som att Atmel och DOUBLE inte alls gillar varandra. FLOATS verkar iallafall fungera och hänger inte exekveringen....
   -Ska göra ett litet försök att få in MIN och MAX värden så att man kan ana trovärdigheten på AVG värdet för den lijära hastigheten
   
+ V 1.4.1 
+  - Försök att få MIN MAX att fungera (behöver testas)
+  - Korrigering av en DOUBLE konvertering. Nu en FLOAT konvertering.
+  - Korrigering av algoritmen för att få ut medelvärdet av linjära hastigheten och pulserna (behöver testas)
+  
