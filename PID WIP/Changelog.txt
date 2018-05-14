@@ -1,3 +1,11 @@
 V 1.2 
  - Färdigt men ej testat
  - Skriver även ut min avg max lijära hastighet för varje motorstyrka 50-700 i steg av 50.
+V 1.3 
+ - Efter massor av felsökning efter ett problem som inte verkar ha någon förklaring i varken syntax eller kodningslogik utan snarare något
+ annat så har jag nu testprogrammet färdigt med medelvärdet av linjära hastigheterna kalkulerade.
+ - Det kvarstår att ändra från linjära hastigheterna från INT till DOUBLE för högre precision 
+ - Det finns en del kod som räknar ut minimum och maximum av de linjära hastighetern för att man ska få en aning om medelvärdets 
+ trovärdighet. Dock så fungerar inte denna del av kod av samma anledning som annan kod inte fungerade förrut; 
+ ett problem som inte verkar ha någon förklaring i varken syntax eller kodningslogik utan snarare något
+ annat.
