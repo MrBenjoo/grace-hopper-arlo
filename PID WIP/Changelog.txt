@@ -20,3 +20,7 @@ V 1.3
   - Korrigering av en DOUBLE konvertering. Nu en FLOAT konvertering.
   - Korrigering av algoritmen för att få ut medelvärdet av linjära hastigheten och pulserna (behöver testas)
   
+ V 1.4.2
+ - Testprogrammet har nu körts igenom och fungerade bra enligt första intryck.
+ - MIN MAX Ger problem så den har kommenterats ut. Troligen något antalet arrays eller storleken. Inga varningar eller info vi kompilering. Men programmet avbryts fortfarande.
+  
