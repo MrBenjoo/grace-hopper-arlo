@@ -30,6 +30,53 @@ int main (void)
 	//delay_init();
 	init_twi();
 	
-	//rotate(180);
-	driveCm(3);
+	int current_case = 0;
+	int next_case = 0;
+	
+	while(1){
+		switch(current_case){
+			case(0): //hämta positioner på objekt, sig själv och avlastningsplats
+			
+			//	current_case = 1; när allt är klart
+			//current_case = next_case;
+			break;
+			
+			case(1): //beräknar position för objekt, vrida oss mot objektet, loop[ med reglerad körning mot objekt[medans positionens's avsånd > 42.5]]
+			
+						
+			//if (positionens's avsånd <= 42.5)
+			//current_case = 2;
+			break;
+			
+			
+			case(2):// detektera objekt ( sensor på), loop[leta efter objekt till hittat]
+			//if(objekt funnet på utsat avstånd)
+			//current_case = 3
+			break;			
+			
+			
+			case(3):// meddela påbyggnad "object found" och vänta på ack
+			//if (ack mottaget)
+			// current_case = 4;
+			break;	
+			
+			
+			case(4)://fråga efter lyckat upplock
+			//if(om objekt upplockat)
+			//current_case = 5;
+			break;
+			
+			
+			case(5)://kör mot avlämningsplats
+			//if(framme vid avlämningsplats)
+			//current_case = 6;
+			break;
+			
+			
+			case(6)://meddela påbyggnad; lämna objekt
+			
+			break;		
+		
+		}
+	}
 }
