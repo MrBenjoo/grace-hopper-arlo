@@ -9,8 +9,7 @@
 #include "../initializations/pins_init.h"
 #include "Reglering/Reglering.h"
 #include "../motorController.h"
-#include "../encoderISR.h"
-#include "../dirNavigator.h"
+#include "../ultraSoundSensor.h"
 //#define xTimeT1 50
 
 /*
