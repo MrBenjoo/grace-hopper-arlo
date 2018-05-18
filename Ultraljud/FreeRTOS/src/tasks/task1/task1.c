@@ -21,41 +21,40 @@
 static uint8_t counter=0;
 static uint8_t check=0;
 
-void task1(void *pvParamters)
-{
-	
+void task1(void *pvParamters) {
 	while(1){
 
-		/*uint8_t dis;
-		uint8_t*/
-		usTrig();
-		/*dis=distansUs();
-		if (!dis && !check)
-		{
-		rotate(1);
-		delay_ms(1);
-		counter++;
-		if (counter==30)
-		{
-		rotate(-30);
-		counter=0;
-		check=1;
+		uint8_t dis;
+		
+		uint32_t valuesArray[30] = {};
+		for(int i = 0; i < 30; i++) {
+			usTrig();
+			dis=distansUs();
+			valuesArray[i] = dis;
 		}
-		} 
-		else if (!dis && check)
-		{
-		rotate(-1);
-		delay_ms(1);
-		counter++;
-		/*if (counter==30)
-		{
+		saveValues(counter, valuesArray);
+		/*if (!dis && !check) {
+			rotate(1);
+			delay_ms(1);
+			counter++;
+			if (counter==30) {
+				rotate(-30);
+				counter=0;
+				check=1;
+			}
+		} else if (!dis && check) {
+			rotate(-1);
+			delay_ms(1);
+			counter++;
+			if (counter==30)
+			{
 
 		
-		}
-
+			}
+			
 		
-		}else if (dis )
-		{
+		} else if (dis ) {
+			
 		}*/
 		
 		//int dis= distansUs();

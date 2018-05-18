@@ -12,9 +12,11 @@
 void us_init();
 void echoUs();
 void usTrig();
+void saveValues(uint32_t i, uint32_t valuesArray[]);
 long distansUs();
 long echoTime();
 
+uint32_t values[60];
 long echoTimeStop;
 
 #endif /* ULTRASOUNDSENSOR_H_ */

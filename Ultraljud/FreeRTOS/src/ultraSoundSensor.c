@@ -50,6 +50,20 @@ void echoUs(){
 	 
 }
 
+void saveValues(uint32_t i, uint32_t valuesArray[]) {
+	values[i] = valuesArray;
+	for(int i = 0; i < 30; i++) {
+		//printf("%d\n",valuesArray[i]);
+		
+	}
+	
+}
+uint8_t get_values(uint8_t index){
+	for (int i=0; i< values)
+	{
+	}
+}
+
 long distansUs(){
 	long dis = (long)(echoTime()/58);
 	if(dis < 100 && dis > 0) {
