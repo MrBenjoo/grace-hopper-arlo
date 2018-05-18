@@ -594,6 +594,12 @@
     <Folder Include="src\tasks\task2\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\ultraSoundSensor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ultraSoundSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\ASF\common\services\delay\delay.h">
       <SubType>compile</SubType>
     </None>

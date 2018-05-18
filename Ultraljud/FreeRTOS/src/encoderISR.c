@@ -54,16 +54,16 @@ pio_enable_interrupt(PIOC,pin10i); //digital pin 10
 
 
 /*  Initializes interrupt pin for the UltraSound sensor echo, trigger on level change, pin9*/
-pio_set_input(PIOC,pin9,NULL);
+/*pio_set_input(PIOC,pin9,NULL);
 pio_handler_set(PIOC,ID_PIOC,pin9,PIO_IT_EDGE,echoUs);
 pio_enable_interrupt(PIOC,pin9);
-
+*/
 
 
 NVIC_EnableIRQ(PIOC_IRQn); 
 }
 /*ultraljud sensor echo pinnet trigger interrupts*/
-void echoUs(){
+/*void echoUs(){
 	if (pio_get(PIOC, PIO_TYPE_PIO_INPUT, pin9))
 	{
 		tc_start(TC0,2);
@@ -82,7 +82,7 @@ long echoTime(){
 	long data=echoTimeStop;
 	//printf("echotime: \n");
 	return data;
-}
+}*/
 /* 
 	void myISR1(){ //used for testing purposes
 	lPrevTick = lCurrentTick;
