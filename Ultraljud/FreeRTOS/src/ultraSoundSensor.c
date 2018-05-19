@@ -59,9 +59,32 @@ void saveValues(uint32_t i, uint32_t valuesArray[]) {
 	
 }
 uint8_t get_values(uint8_t index){
-	for (int i=0; i< values)
+	static uint8_t check1=0;
+	static uint8_t check2=0;
+	static uint8_t value=0;
+	static uint8_t i;
+	static uint8_t j;
+	for ( i=0; i< sizeof(values[index]);i++)
 	{
+		
+		for ( j=0; j<sizeof(values[index]); j++)
+		{
+			
+			if (values[index][i] == values[index][j])
+			{
+				check1++;
+			}
+			
+		}
+		
+		if (check1>check2)
+			{
+				check2=check1;
+				value==values[index][i];
+			}
 	}
+	return value;
+	
 }
 
 long distansUs(){
