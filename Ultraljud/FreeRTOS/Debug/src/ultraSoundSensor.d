@@ -161,7 +161,7 @@ src/ultraSoundSensor.d src/ultraSoundSensor.o: ../src/ultraSoundSensor.c \
  ../src/ASF/sam/drivers/uart/uart.h ../src/ASF/sam/drivers/usart/usart.h \
  ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h ../src/ultraSoundSensor.h \
- ../src/config/../initializations/pins_init.h
+ ../src/motorController.h ../src/config/../initializations/pins_init.h
 
 ../src/asf.h:
 
@@ -500,5 +500,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/sam/drivers/pio/pio_handler.h:
 
 ../src/ultraSoundSensor.h:
+
+../src/motorController.h:
 
 ../src/config/../initializations/pins_init.h:

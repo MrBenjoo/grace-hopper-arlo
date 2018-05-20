@@ -3,7 +3,7 @@
 #include "Reglering/Reglering.h"
 #include "encoderISR.h"
 #include "motorController.h"
-#include "dirNavigator.h"
+#include "ultraSoundSensor.h"
 #include <asf.h>
 /*
 This version Experiment 1.1 of our FreeRTOS program is ment to test the encoders, if we can count them and save the counter value 
@@ -30,7 +30,8 @@ int main (void)
 	//controlCenter(50);
 	//delay_init();
 	
-	//rotate(720);
+	
+	//rotate(180);
 // 	ioport_enable_pin(pin8);
 // 	ioport_set_pin_dir(pin8,IOPORT_DIR_OUTPUT);
 // 	while(1){

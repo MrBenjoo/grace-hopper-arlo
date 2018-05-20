@@ -162,7 +162,7 @@ src/main.d src/main.o: ../src/main.c ../src/initializations/main_init.h \
  ../src/ASF/sam/drivers/uart/uart.h ../src/ASF/sam/drivers/usart/usart.h \
  ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h ../src/motorController.h \
- ../src/dirNavigator.h
+ ../src/ultraSoundSensor.h
 
 ../src/initializations/main_init.h:
 
@@ -510,4 +510,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/motorController.h:
 
-../src/dirNavigator.h:
+../src/ultraSoundSensor.h:

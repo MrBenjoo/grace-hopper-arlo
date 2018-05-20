@@ -183,7 +183,7 @@ void resetCounter(){ //resets left and right encoders pulse counters
 }
 /////////////////////PULSE COUNTER//////////////////////////////////////////
 int getLeftPulses(){ //returns the sum of pulses from left encoder A and B since last reset
-	printf("LeftPulses : ##[%i]##\n",(getLeftAPulses()+getLeftBPulses()));
+	//printf("LeftPulses : ##[%i]##\n",(getLeftAPulses()+getLeftBPulses()));
 	return (getLeftAPulses()+getLeftBPulses());
 }
 int getLeftAPulses(){ //returns the amount of pulses from left encoder A since last reset
@@ -195,7 +195,7 @@ int getLeftBPulses(){ //returns the amount of pulses from left encoder B since l
 	return lBPulses;
 }
 int getRightPulses(){ //returns the sum of pulses from right encoder A and B since last reset
-	printf("RightPulses : ##[%i]##\n",(getRightAPulses()+getRightBPulses()));
+	//printf("RightPulses : ##[%i]##\n",(getRightAPulses()+getRightBPulses()));
 	return (getRightAPulses()+getRightBPulses());
 }
 int getRightAPulses(){ //returns the amount of pulses from right encoder A since last reset
@@ -209,45 +209,45 @@ int getRightBPulses(){ //returns the amount of pulses from right encoder B since
 
 /////////////////////////PULSE TIMES///////////////////////////////////////
 uint16_t getRightAPulseTime(){ //returns the latest pulse time for the right encoder A in milliseconds
-	printf("RightPulseTime A: %i ms\n",rAPulseTime);
+	//printf("RightPulseTime A: %i ms\n",rAPulseTime);
 	return rAPulseTime;
 	
 }
 uint16_t getRightBPulseTime(){ //returns the latest pulse time for the right encoder B  in milliseconds
-	printf("RightPulseTime B: %i ms\n",rBPulseTime);
+	//printf("RightPulseTime B: %i ms\n",rBPulseTime);
 	return rBPulseTime;
 }
 uint16_t getLeftAPulseTime(){  //returns the latest pulse time for the left encoder A in milliseconds
-	printf("LeftPulseTime A: %i ms\n",lAPulseTime);
+	//printf("LeftPulseTime A: %i ms\n",lAPulseTime);
 	return lAPulseTime;
 }
 uint16_t getLeftBPulseTime(){  //returns the latest pulse time for the left encoder B in milliseconds
-	printf("LeftPulseTime B: %i ms\n",lBPulseTime);
+	//printf("LeftPulseTime B: %i ms\n",lBPulseTime);
 	return lBPulseTime;
 }
 
 /////////////////////////CONTROL BY PULSE COUNTER///////////////////////////////
 int waitForXPulsesRL(int lPulses,int rPulses){//wait for a specified amount of pulses, returns 1 when first of two conditions of X pulses is met
 	if(getLeftPulses()>lPulses || getRightPulses()>rPulses) {
-		printf("RL True\n");
+		//printf("RL True\n");
 		return 1;
 	}
-	printf("RL False\n");	
+	//printf("RL False\n");	
 	return 0;
 }
  
 int waitForXPulsesL(int lPulses){//wait for a specified amount of pulses from the left wheel encoder, returns 1 if condition X pulses is met
 	if(getLeftPulses()>lPulses)
-		printf("L True\n");	
+		//printf("L True\n");	
 		return 1;
-	printf("L False\n");		
+//	printf("L False\n");		
 	return 0;
 }
 
 int waitForXPulsesR(int rPulses){//wait for a specified amount of pulses from the right wheel encoder, returns 1 if condition X pulses is met
 	if(getRightPulses()>rPulses)
-	    printf("R True\n");	
+	   // printf("R True\n");	
 		return 1;
-	printf("R False\n");	
+	//printf("R False\n");	
 	return 0;
 }
