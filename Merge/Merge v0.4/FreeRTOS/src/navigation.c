@@ -53,7 +53,11 @@
 	
 		int angleCorrection(int rX,int rY,int cX,int cY,int u1) { // r = robotic position, c = coordinate position, u1 = angle of robot.
 		// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference
-			int v1 = atan2(rY-cY, rX-cX) *(180/M_PI) + 180; // the angle we want to have.
+
+		
+			int v1 = atan2(rY-cY, rX-cX) *(180/M_PI) + 180; // the angle we want to change.
+		// The method "rotate" does only take values in the range of 1 to 180 and  -1 to -180. 
+		//Because of this we have to check the value that where suppose to be returned and change it with a shift to make it in the acceptable range.					
 			if((v1-u1) > 180)
 				return -360 + (v1-u1);
 			else if(v1-u1 < -180)
