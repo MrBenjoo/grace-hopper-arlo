@@ -155,7 +155,7 @@ void controlCenter(void *pvParamters)
 			printf("Test_print: Case 4 entered\n");
 			// Sends message to extension to start Pick up.
 			not_sent = true;
-			if(send_package(BORJA_PLOCKA, TWI_SLAVE_ADR_PAB) == DATA_SENT && not_sent){
+			if(send_package(BORJA, TWI_SLAVE_ADR_PAB) == DATA_SENT && not_sent){
 				printf("case 3: send_package SUCCESFUL... \n");
 				not_sent = false;
 			}
