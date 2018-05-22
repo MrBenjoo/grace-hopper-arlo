@@ -20,82 +20,83 @@ Change the code for your purpose.
 */
 static uint8_t counter=0;
 static uint8_t check=0;
+static uint8_t arrcounter;
+
+
 
 void task1(void *pvParamters) {
-	while(1){
-
-		uint8_t dis;
-		uint32_t valuesArray[30] = {};
-		for(int i = 0; i < 30; i++) {
-			usTrig();
-			dis=distansUs();
-			valuesArray[i] = dis;
+	uint8_t angels[60]={};
+		int angle;
+	//int counter=-1;
+	while(1){			
+			uint8_t dis;
+			uint32_t valuesArray[30] = {};
+			for(int i = 0; i < 30; i++) {
+				usTrig();
+				dis=distansUs();
+				//printf("dis: %i \n", dis);
+				valuesArray[i] = dis;
+			}
+			
+			saveValues(counter, valuesArray);
+			dis=get_values(counter);
+			printf("values: %i \n",dis);
+			
+			if (dis>0 && dis <40)
+			{		
+				angels[arrcounter]=counter;
+				arrcounter++;
+			}
+		
+			
+			if (!check) {
+				rotate(1);			// ändra här om fel
+				counter++;
+				if (counter==29) {
+					rotate(-30);
+					//counter=0;
+					check=1;
+				}
+				} else if (check==1) {
+				rotate(-1);
+				counter++;
+				if (counter==59)
+				{
+					rotate(30);
+					check=2;		//lägg den till 2 sen om det inte går
+				}
+				}
+			
+			//int dis= distansUs();
+			//ultraSound();
 			//printf("avstånd: %li \n",distansUs());
-		}
-		saveValues(counter, valuesArray);
-		if (check == 0) {
-			rotate(1);
-			delay_ms(1);
-			counter++;
-			printf("counter: %i\n", counter);
-			if (counter==10) {
-				printf("avståndfsdf \n");
-				rotate(-10);
-				
-				counter=0;
-				check=1;
-			}
-			} else if (check == 1) {
-			rotate(-1);
-			delay_ms(1);
-			counter++;
-			if (counter==10) {
-				rotate(10);
-				printf("avståndfsdf \n");
-				counter = 0;
-				check = 0;
-			}
-		}
-
+			//vTaskDelayUntil(xLastWakeTime,100);
 		
-		/*uint8_t dis;
-		
-		uint32_t valuesArray[30] = {};
-		for(int i = 0; i < 30; i++) {
-		usTrig();
-		dis=distansUs();
-		valuesArray[i] = dis;
-		}
-		saveValues(counter, valuesArray);*/
-		/*if (!dis && !check) {
-		rotate(1);
-		delay_ms(1);
-		counter++;
-		if (counter==30) {
-		rotate(-30);
-		counter=0;
-		check=1;
-		}
-		} else if (!dis && check) {
-		rotate(-1);
-		delay_ms(1);
-		counter++;
-		if (counter==30)
+		if (check==2)
 		{
-
-		
+			uint8_t bestAngle=get_values(0);
+			uint8_t i;
+			
+			for ( i=0;i<60;i++)
+			{
+				if (bestAngle>get_values(i) && get_values(i) != 0)
+				{
+					bestAngle=get_values(i);
+				}
+			}
+			if (i >= 0 && i < 30)
+			{
+				rotate(-i);
+			} 
+			else
+			{
+				rotate(i - 29);
+			}
+			
+			//rotate(i-30);
+			check=3;
+		}
 		}
 		
-		
-		} else if (dis ) {
-		
-		}*/
-		
-		//int dis= distansUs();
-		//ultraSound();
-		//printf("avstånd: %li \n",distansUs());
-		//vTaskDelayUntil(xLastWakeTime,100);
-		
-	}
 }
 

@@ -16,6 +16,7 @@ void saveValues(uint32_t i, uint32_t valuesArray[]);
 void ultraSound();
 long distansUs();
 long echoTime();
+uint8_t get_values(uint8_t index);
 
 uint32_t values[60];
 long echoTimeStop;

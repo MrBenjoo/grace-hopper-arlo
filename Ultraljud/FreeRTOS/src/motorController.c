@@ -49,9 +49,9 @@ void rotate(int degree) { //degree 1 - 180 or -1 - -180
 	
 	while(!waitForXPulsesRL(p/2,p/2)) {
 		if(radian > 0) {
-			drive(25,25,-1,1);
+			drive(5,5,-1,1);
 		} else if(radian < 0) {
-			drive(25,25,1,-1);
+			drive(5,5,1,-1);
 		}
 	}
 	drive(0,0,1,1);

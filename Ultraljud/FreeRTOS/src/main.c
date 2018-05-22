@@ -29,7 +29,13 @@ int main (void)
 	//delay_us(3000000);
 	//controlCenter(50);
 	//delay_init();
-	
+// 	while(1){
+// 		//rotate(60);
+// 		delay_ms(1000);
+// 		dri
+// 		ve(50,50,1,1);
+// 
+// 		}
 	
 	//rotate(180);
 // 	ioport_enable_pin(pin8);

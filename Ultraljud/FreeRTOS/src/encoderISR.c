@@ -179,7 +179,7 @@ void resetCounter(){ //resets left and right encoders pulse counters
 	rAPulses=0;
 	rBPulses=0;
 	lBPulses=0;
-	printf("Reseting pulse counters:\n LeftPulses A: #%i\n LeftPulses B: #%i\n RightPulses A: #%i\n RightPulses B: #%i\n",lAPulses,lBPulses,rAPulses,rBPulses);
+	//printf("Reseting pulse counters:\n LeftPulses A: #%i\n LeftPulses B: #%i\n RightPulses A: #%i\n RightPulses B: #%i\n",lAPulses,lBPulses,rAPulses,rBPulses);
 }
 /////////////////////PULSE COUNTER//////////////////////////////////////////
 int getLeftPulses(){ //returns the sum of pulses from left encoder A and B since last reset
@@ -228,11 +228,19 @@ uint16_t getLeftBPulseTime(){  //returns the latest pulse time for the left enco
 
 /////////////////////////CONTROL BY PULSE COUNTER///////////////////////////////
 int waitForXPulsesRL(int lPulses,int rPulses){//wait for a specified amount of pulses, returns 1 when first of two conditions of X pulses is met
-	if(getLeftPulses()>lPulses || getRightPulses()>rPulses) {
-		//printf("RL True\n");
-		return 1;
+	if(lPulses < 0 && rPulses < 0) {
+		if(getLeftPulses()<lPulses || getRightPulses()<rPulses) {
+			printf("RL True\n");
+			return 1;
+		}
+		} else {
+		if(getLeftPulses()>lPulses || getRightPulses()>rPulses) {
+			printf("RL True\n");
+			return 1;
+		}
 	}
-	//printf("RL False\n");	
+	
+	//printf("RL False\n");
 	return 0;
 }
  

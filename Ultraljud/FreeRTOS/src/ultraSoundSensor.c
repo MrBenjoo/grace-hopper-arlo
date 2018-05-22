@@ -53,7 +53,7 @@ void echoUs(){
 void saveValues(uint32_t i, uint32_t valuesArray[]) {
 	values[i] = valuesArray;
 	for(int i = 0; i < 30; i++) {
-		printf("%d\n",valuesArray[i]);
+		//printf("saveValues: %d\n",valuesArray[i]);
 		
 	}
 	
@@ -97,25 +97,49 @@ void ultraSound() {
 	
 	//vTaskDelayUntil(xLastWakeTime,100);
 }
-
-uint8_t get_values(uint8_t index){
-	static uint8_t check1=0;
-	static uint8_t check2=0;
-	static uint8_t value=0;
-	static uint8_t i;
-	static uint8_t j;
-	uint32_t *valuesArray = values[index];
+uint8_t get_values(uint8_t _index){
+// 	static uint8_t check1=0;
+// 	static uint8_t check2=0;
+// 	static uint8_t value=0;
+	uint32_t *valuesArray = values[_index];
 	uint32_t countArray[30] = {0};
-	for (int i = 0; i < 30; i++) {
+		
+	int i, max, index;
+	for(i = 0; i < 30; i++)
+	{
+		++countArray[valuesArray[i]];
+		//printf("%i \n", countArray[valuesArray[i]]);
+	}
+	//printf("hej");
+	
+	// Find the letter that was used the most
+	max = countArray[0];
+	index = 0;
+	for(i = 0; i < 30; i++)
+	{
+		if( countArray[valuesArray[i]] > max)
+		{
+			max = countArray[valuesArray[i]];
+			index = i;
+		}
+	}
+
+	//printf("Most common: %i \n", valuesArray[index]);
+		
+	/*for (int i = 0; i < 30; i++) {
 		countArray[valuesArray[i]]++;
+		printf("%i \n", countArray[valuesArray[i]]);
 	}
 
 	int mostTimes= -1;
 	for (int i = 0; i < 10; i ++) {
 		if(countArray[i] > mostTimes) {
 			mostTimes = countArray[i];
+			//printf("%i \n", countArray[i]);
 		}
 	}
+	
+	//printf("%i \n", mostTimes);*/
 
 	/*for ( i=0; i< sizeof(valuesArray);i++) {
 		
@@ -133,7 +157,7 @@ uint8_t get_values(uint8_t index){
 			value==values[index][i];
 		}
 	}*/
-	return mostTimes;
+	return valuesArray[index];
 	
 }
 
