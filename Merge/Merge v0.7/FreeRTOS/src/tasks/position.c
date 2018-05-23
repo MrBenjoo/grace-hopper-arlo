@@ -25,6 +25,7 @@ int extensionID = 0; //this variable determines which item is the target
 
 void position(void *pvParamters)
 {
+	printf("inside position task");
 	portTickType xLastWakeTime;
 	portTickType xTimeIncrement = posSampleTime/portTICK_RATE_MS; /* set ticks (xTimeT1) in milliseconds */
 	xLastWakeTime = xTaskGetTickCount();					/* the count of ticks since vTaskStartScheduler was called */
@@ -55,6 +56,9 @@ void position(void *pvParamters)
 				//possibly add some error handling here;
 				printf("ERROR: failed to fetch position data from MEGA\n");
 			}
+			
+			printf("POS disposalX %i\n", disposalX);
+			printf("POS disposalY %i\n", disposalY);
 			
 		}
 	

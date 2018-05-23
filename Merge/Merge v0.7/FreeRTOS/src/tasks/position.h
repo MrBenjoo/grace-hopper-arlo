@@ -6,8 +6,8 @@
 #pragma once
 
 #define TASK_POS_STACK_SIZE (2048/ sizeof(portSTACK_TYPE))
-#define TASK_POS_PRIORITY (1)
-#define posSampleTime 200 //sampletime
+#define TASK_POS_PRIORITY (2)
+#define posSampleTime 300 //sampletime
 
 void position(void *pvParamters);
 int getPositionX(void);

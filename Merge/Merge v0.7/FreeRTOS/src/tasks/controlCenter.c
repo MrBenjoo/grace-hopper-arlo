@@ -98,7 +98,9 @@ void controlCenter(void *pvParamters)
 			dropOffReferenceX = dropOffPositionX - 15;
 			dropOffReferenceY = dropOffPositionY - 30 - 45/2; 
 			objectReferenceX = objectPositionX;								
-			objectReferenceY = objectPositionY - 100;	
+			objectReferenceY = objectPositionY - 100;
+			printf("CC - dropOffPositionX %i\n", dropOffPositionX);	
+			printf("CC - dropOffPositionY %i\n", dropOffPositionY);	
 			//valueFromArmTest = send_package();  //	Send package to arm, if 1 is returned communication is successfull.			
 			
 			if(objectPositionX > 0 && objectPositionY > 0 && dropOffPositionX  > 0 && dropOffPositionY > 0)  
