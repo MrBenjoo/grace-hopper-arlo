@@ -63,7 +63,7 @@ float desiredRightSpeed = 0;
 			int p = (radian * 0.4 * 144) / (PI * 0.16);
 			int pLStart = getPulsesSinceStartLeft();
 			int pRStart = getPulsesSinceStartRight();
-			while((getPulsesSinceStartLeft() - pLStart) < p/2 || getPulsesSinceStartRight() - pRStart < p/2) {
+			while((getPulsesSinceStartLeft() - pLStart) < p/2 && (getPulsesSinceStartRight() - pRStart) < p/2) {
 				if(radian > 0) {
 					drive(-100,100);
 					} else if(radian < 0) {

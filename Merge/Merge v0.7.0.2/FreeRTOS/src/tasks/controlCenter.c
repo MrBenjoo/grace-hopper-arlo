@@ -130,9 +130,9 @@ void controlCenter(void *pvParamters)
 			printf("Test_print: Case 1 entered\n");
 			binaryLEDS(1);
 			vTaskDelay(5000);		
-			//correction = angleCorrection(actualPositionX,actualPositionY,actualPositionX+20,actualPositionY,angle);
-			printf("%i", 90);
-			rotate(90);	
+			correction = angleCorrection(actualPositionX,actualPositionY,actualPositionX+20,actualPositionY,angle);
+			printf("%i", correction);
+			rotate(correction);	
 			printf("END");
 			// DRIVE to reference point from the angle 0*.	
 			/*while(getPositionX() < objectReferenceX){
