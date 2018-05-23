@@ -57,9 +57,6 @@ void position(void *pvParamters)
 				printf("ERROR: failed to fetch position data from MEGA\n");
 			}
 			
-			printf("POS disposalX %i\n", disposalX);
-			printf("POS disposalY %i\n", disposalY);
-			
 		}
 	
 	}

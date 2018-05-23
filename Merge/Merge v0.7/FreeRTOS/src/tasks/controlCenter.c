@@ -66,7 +66,11 @@ void controlCenter(void *pvParamters)
 			oldPositionX = getPositionX();
 			oldPositionY = getPositionY();
 			
+			printf("before drive");
+			
 			driveCm(10,150);		// Drive short distance 10cm with speedPulse 150
+			
+			printf("after drive");
 			
 			actualPositionX = getPositionX();
 			actualPositionY = getPositionY();
@@ -77,6 +81,7 @@ void controlCenter(void *pvParamters)
 			angle = getAngle(oldPositionX,oldPositionY,actualPositionX,actualPositionY);		// Gets angle we are looking at 
 			
 			printf("startAngle %i\n",angle);
+			printf(current_case);
 			if(previous_case==initialization)
 				current_case = destination_pickup_reference;
 			if(previous_case==pickup)
@@ -107,7 +112,7 @@ void controlCenter(void *pvParamters)
 			{
 				printf("SUCCESS: received coordinates!\n");
 				previous_case = current_case;
-				current_case = initialization;
+				current_case = orientation;
 				printf("objectPositionX AF %i\n",objectPositionX);
 				printf("objectPositionY AF %i\n",objectPositionY);
 				printf("dropOffPositionX AF %i\n",dropOffPositionX);
