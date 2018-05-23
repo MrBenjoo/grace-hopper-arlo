@@ -182,6 +182,6 @@ void regulator(void *pvParamters)
 	}
 	//returns total change in rotation
 	float getChangeInAngle(){
-		return (float)(((displacementLeft-displacementRight)/wheelToWheel)*(180/M_PI));
+		return (float)(((getDisplacementLeft()-getDisplacementRight())/wheelToWheel)*(180/M_PI));
 	}
 
