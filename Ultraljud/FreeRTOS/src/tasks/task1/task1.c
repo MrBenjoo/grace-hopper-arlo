@@ -27,6 +27,7 @@ static uint8_t arrcounter;
 void task1(void *pvParamters) {
 	uint8_t angels[60]={};
 		int angle;
+		uint8_t bestAngle;
 	//int counter=-1;
 	while(1){			
 			uint8_t dis;
@@ -73,30 +74,36 @@ void task1(void *pvParamters) {
 			//vTaskDelayUntil(xLastWakeTime,100);
 		
 		if (check==2)
-		{
-			uint8_t bestAngle=get_values(0);
+		{	
+			bestAngle=get_values(0);
 			uint8_t i;
-			
+			uint8_t index;
+			// hittar vinklen där roboten ska rotera framför armen
 			for ( i=0;i<60;i++)
 			{
 				if (bestAngle>get_values(i) && get_values(i) != 0)
 				{
 					bestAngle=get_values(i);
+					index=i;
 				}
 			}
-			if (i >= 0 && i < 30)
+			if (index >= 0 && index < 30)
 			{
-				rotate(-i);
-			} 
+				rotate(index);
+			}
 			else
 			{
-				rotate(i - 29);
+				rotate(index - 29);
 			}
 			
-			//rotate(i-30);
+			
 			check=3;
+		}else if (check==3);
+		{
+			driveCm(bestAngle-18);
 		}
-		}
+		
+	}
 		
 }
 

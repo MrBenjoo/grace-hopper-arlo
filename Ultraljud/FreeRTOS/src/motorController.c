@@ -56,6 +56,18 @@ void rotate(int degree) { //degree 1 - 180 or -1 - -180
 	}
 	drive(0,0,1,1);
 }
+void driveCm(int cm) {
+	int p = cm / (50/(float)144);
+
+	while(!waitForXPulsesRL(p,p)) {
+		if(p > 0) {
+			drive(10,10,1,1);
+			} else {
+			drive(10,10,-1,-1);
+		}
+	}
+	drive(0,0,1,1);
+}
 
 int getAngle(int p1X, int p1Y, int p2X, int p2Y) {
 	// atan2 returns angle in radians, we multiply by (180/PI) to change it to degrees and add 180 to change the reference

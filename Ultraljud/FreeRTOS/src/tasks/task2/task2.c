@@ -8,7 +8,7 @@ Change the code for your purpose.
 #include "../initializations/pins_init.h"
 
 #define xTimeT2 20
-
+#define A0 0
 /*
 * Function: task2
 * -------------------
@@ -16,25 +16,27 @@ Change the code for your purpose.
 */
 void task2(void *pvParamters)
 {
-	portTickType xLastWakeTime;
-	portTickType xTimeIncrement = xTimeT2/portTICK_RATE_MS; /* set ticks (xTimeT2) in milliseconds */
-	xLastWakeTime = xTaskGetTickCount();					/* the count of ticks since vTaskStartScheduler was called */
+					
 	
-	while(1) /* the task must be looping infinitely */
+	analog_init(A0);
+	uint16_t adc_value = 0;
+	int distance = 0;
+	int oldDistans=INT_MAX;
+	int check=0;
+	
+	while (1)
 	{
-		vTaskDelayUntil(&xLastWakeTime, xTimeIncrement); /* constant period, independent of execution time */
-		//vTaskDelay(50);								 /* no constant period, dependent of execution time */
-		
-		
-		/* ----------------------------------- simulate a function/task that is working ----------------------------------- */
-		ioport_set_pin_level(pin12, HIGH); /* set pin to HIGH to indicate that the task has entered the running state */
-		volatile int j=0;
-		for (int i=0; i < 10000; i++)
+		/* For-loopen används för att ge ett pålitligare värde */
+		for(int i = 0; i < 11; i++)
 		{
-			ioport_set_pin_level(pin13, LOW);
-			j++;
+			adc_value += analog_read(A0);
 		}
-		ioport_set_pin_level(pin12, LOW); /* set pin to LOW to indicate that the task is no longer in the running state */
-		/* ---------------------------------------------------------------------------------------------------------------- */
+		adc_value  = adc_value/10; /* ta medelvärdet */
+		
+		distance = ir_get_distance(adc_value);
+		if (oldDistans>distance)
+		{
+		}
+		printf("%i\n", distance);
 	}
 }

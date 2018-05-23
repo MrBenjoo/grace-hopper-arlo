@@ -9,7 +9,7 @@
 #ifndef MOTORCONTROLLER_H_
 #define MOTORCONTROLLER_H_
 
-
+void driveCm(int cm);
 void drive(uint8_t rSpeed, uint8_t lSpeed, int8_t rDirection, int8_t lDirection);
 void testDriveR(uint8_t speed, int8_t direction);
 void testDriveL(uint8_t speed, int8_t direction);
