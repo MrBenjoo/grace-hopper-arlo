@@ -1,5 +1,5 @@
-src/tasks/task1/task1.d src/tasks/task1/task1.o: \
- ../src/tasks/task1/task1.c ../src/asf.h ../src/ASF/sam/utils/compiler.h \
+src/ultraSoundSensor.d src/ultraSoundSensor.o: ../src/ultraSoundSensor.c \
+ ../src/asf.h ../src/ASF/sam/utils/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  ../src/ASF/common/utils/parts.h \
  ../src/ASF/sam/utils/preprocessor/preprocessor.h \
@@ -159,7 +159,7 @@ src/tasks/task1/task1.d src/tasks/task1/task1.o: \
  ../src/ASF/common/services/serial/serial.h \
  ../src/ASF/common/services/serial/sam_uart/uart_serial.h \
  ../src/ASF/sam/drivers/uart/uart.h ../src/ASF/sam/drivers/usart/usart.h \
- ../src/config/conf_uart_serial.h \
+ ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/common/services/twi/sam_twi/twi_master.h \
  ../src/ASF/sam/drivers/twi/twi.h \
  ../src/ASF/common/services/twi/sam_twi/twi_slave.h \
@@ -167,10 +167,10 @@ src/tasks/task1/task1.d src/tasks/task1/task1.o: \
  ../src/ASF/common/services/twi/sam_twi/twi_master.h \
  ../src/ASF/common/services/twi/twi_slave.h \
  ../src/ASF/common/services/twi/sam_twi/twi_slave.h \
- ../src/ASF/sam/drivers/pio/pio_handler.h ../src/tasks/task1/task1.h \
+ ../src/ASF/sam/drivers/pio/pio_handler.h \
  ../src/config/../initializations/pins_init.h \
- ../src/Reglering/Reglering.h ../src/config/../motorController.h \
- ../src/config/../encoderISR.h
+ ../src/config/../navigation.h ../src/config/../ultraSoundSensor.h \
+ ../src/config/../motorController.h
 
 ../src/asf.h:
 
@@ -504,6 +504,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/config/conf_uart_serial.h:
 
+../src/ASF/sam/drivers/tc/tc.h:
+
 ../src/ASF/common/services/twi/sam_twi/twi_master.h:
 
 ../src/ASF/sam/drivers/twi/twi.h:
@@ -520,12 +522,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/sam/drivers/pio/pio_handler.h:
 
-../src/tasks/task1/task1.h:
-
 ../src/config/../initializations/pins_init.h:
 
-../src/Reglering/Reglering.h:
+../src/config/../navigation.h:
+
+../src/config/../ultraSoundSensor.h:
 
 ../src/config/../motorController.h:
-
-../src/config/../encoderISR.h:

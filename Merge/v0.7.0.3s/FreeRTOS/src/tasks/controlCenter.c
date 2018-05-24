@@ -7,6 +7,7 @@
 #include "../debuggingLEDS.h"
 #include "position.h"
 #include "regulator.h"
+#include "ultraSoundSensor.h"
 #include "motorController.h"
 #include <math.h>
 #include <stdio.h>
@@ -277,15 +278,20 @@ void controlCenter(void *pvParamters)
 //中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中
 ///////////////   CASE: 7 DESTINATION DROP OFF ZONE   /////////////////////
 //中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中
-			case(destination_dropoff_zone):
-			printf("Test_print: Case 7 entered\n");
-			binaryLEDS(7);
-			
-			// SCANNINGROUTINE "B"
-			// om avst幩d = 5: 
-			//current_case = dropoff;
-			break;
-
+		case(destination_dropoff_zone):
+		printf("Test_print: Case 7 entered\n");
+		binaryLEDS(7);
+		uint8_t dis;
+		usTrigM();
+		dis=distansUsM();
+		if (dis >5){
+		driveCm(dis-5,5);
+		
+		}		
+		// SCANNINGROUTINE "B"
+		// om avst幩d = 5:
+		//current_case = dropoff;
+		break;
 //中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中
 ///////////////				CASE: 8 DROP OFF			  ////////////////////
 //中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中

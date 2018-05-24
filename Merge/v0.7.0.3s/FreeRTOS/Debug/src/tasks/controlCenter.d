@@ -160,7 +160,7 @@ src/tasks/controlCenter.d src/tasks/controlCenter.o: \
  ../src/ASF/common/services/serial/serial.h \
  ../src/ASF/common/services/serial/sam_uart/uart_serial.h \
  ../src/ASF/sam/drivers/uart/uart.h ../src/ASF/sam/drivers/usart/usart.h \
- ../src/config/conf_uart_serial.h \
+ ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/common/services/twi/sam_twi/twi_master.h \
  ../src/ASF/sam/drivers/twi/twi.h \
  ../src/ASF/common/services/twi/sam_twi/twi_slave.h \
@@ -172,7 +172,8 @@ src/tasks/controlCenter.d src/tasks/controlCenter.o: \
  ../src/tasks/../I2C/I2CFunctions.h \
  ../src/tasks/../initializations/pins_init.h ../src/tasks/../navigation.h \
  ../src/tasks/../debuggingLEDS.h ../src/tasks/position.h \
- ../src/tasks/regulator.h ../src/motorController.h \
+ ../src/tasks/regulator.h ../src/ultraSoundSensor.h \
+ ../src/motorController.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h
 
 ../src/tasks/controlCenter.h:
@@ -509,6 +510,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/config/conf_uart_serial.h:
 
+../src/ASF/sam/drivers/tc/tc.h:
+
 ../src/ASF/common/services/twi/sam_twi/twi_master.h:
 
 ../src/ASF/sam/drivers/twi/twi.h:
@@ -536,6 +539,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/tasks/position.h:
 
 ../src/tasks/regulator.h:
+
+../src/ultraSoundSensor.h:
 
 ../src/motorController.h:
 

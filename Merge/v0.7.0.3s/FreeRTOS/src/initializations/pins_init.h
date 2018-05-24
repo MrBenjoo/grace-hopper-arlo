@@ -21,6 +21,7 @@
 #define pin4  PIO_PC26_IDX
 #define pin3  PIO_PC28_IDX
 #define pin2  PIO_PB25_IDX
+#define pin4i  PIO_PC26
 #define pin33  PIO_PC1
 #define pin34 PIO_PC2
 #define pin5i  PIO_PC25

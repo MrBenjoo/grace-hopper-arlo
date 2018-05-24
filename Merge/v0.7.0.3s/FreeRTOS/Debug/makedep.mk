@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\sam\drivers\tc\tc.c
+
 src\debuggingLEDS.c
 
 src\navigation.c
@@ -11,6 +13,8 @@ src\tasks\controlCenter.c
 src\tasks\position.c
 
 src\tasks\regulator.c
+
+src\ultraSoundSensor.c
 
 src\ASF\common\services\delay\sam\cycle_counter.c
 
