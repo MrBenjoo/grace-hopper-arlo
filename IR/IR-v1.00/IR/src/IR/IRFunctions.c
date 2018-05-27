@@ -7,8 +7,8 @@
 #include "IRFunctions.h"
 #include <asf.h>
 
-//const ir_distance_parameters sensor = {10000, -6, 3};
-const ir_distance_parameters sensor = {10000, -32, 2};
+const ir_distance_parameters sensor = {10000, -9, 3};		/* korrigeringskonstant = 3 */	
+//const ir_distance_parameters sensor = {10000, -32, 2};	/* korrigeringskonstant = 2 */
 	
 int ir_get_distance(int adc_value)
 {
